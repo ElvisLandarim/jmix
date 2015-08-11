@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: jmix
+        psr4_prefix: jmix
+        src_path: app

@@ -1,9 +1,7 @@
 <?php
 
 
-/*
- * Autenticadores
- */
+
 //Logar
 Route::get('auth/login', [
    'as' => 'login', 'uses' => 'Auth\AuthController@getLogin'
@@ -17,6 +15,27 @@ Route::get('auth/logout', [
 ]);
 /*
  * End Autenticadores
+ */
+
+/*
+ * Administração
+ */
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('admin/index', [
+        'as' => 'admin', 'uses' => 'Admin\HomeController@index'
+    ]);
+
+    //Clientes
+    Route::get('admin/clientes', [
+        'as' => 'clientes', 'uses' => 'Admin\ClienteController@index'
+    ]);
+    Route::get('admin/clientes/create', [
+        'as' => 'cadastro-cliente', 'uses' => 'Admin\ClienteController@create'
+    ]);
+});
+/*
+ * End Administração
  */
 
 

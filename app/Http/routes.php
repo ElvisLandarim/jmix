@@ -2,7 +2,7 @@
 
 
 
-//Logar
+//Autendicadores
 Route::get('auth/login', [
    'as' => 'login', 'uses' => 'Auth\AuthController@getLogin'
 ]);
@@ -16,6 +16,7 @@ Route::get('auth/logout', [
 /*
  * End Autenticadores
  */
+
 
 /*
  * Administração
@@ -33,12 +34,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/clientes/create', [
         'as' => 'cadastro-cliente', 'uses' => 'Admin\ClienteController@create'
     ]);
+
+
+
+    // Registration routes...
+    Route::get('auth/register', 'Auth\AuthController@getRegister');
+    Route::post('auth/register', 'Auth\AuthController@postRegister');
 });
 /*
  * End Administração
  */
 
+//Site
+//Registro de cliente
+Route::get('site/register', [
+   'as' => 'register', 'uses' => 'Site\RegistroController@index'
+]);
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');

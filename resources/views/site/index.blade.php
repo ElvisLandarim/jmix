@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
+
 <html>
+
 <head>
     <title>DECOR STUDIO JMIX </title>
     <link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css'/>
